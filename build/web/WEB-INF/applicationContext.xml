@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+    
+    <bean id="ejc" class="persistencia.EmpleadoJpaController"></bean>
+    <bean id="ed" class="persistencia.EmpleadoDaoImp">
+        <property name="ejc" ref="ejc"/>
+    </bean>
+    <bean id="as" class="servicio.AccesoServicioImp">
+        <property name="ed" ref="ed"/>
+    </bean>
+    <bean id="/AccesoControl" class="vista.AccesoControl">
+        <property name="as" ref="as"/>
+    </bean>
+    
+    
+    
+    <bean id="ps" class="servicio.ProvedorServicioImp">
+        <property name="pd" ref="pd"/>
+        <property name="pro" ref="pro"/>
+    </bean>
+    
+    <bean id="p" class="vista.Presentador">
+    </bean>
+    
+    <bean id="/ProveedorControl" class="vista.ProveedorControl">
+        <property name="ps" ref="ps"/>
+        <property name="p" ref="p"/>
+    </bean>
+    
+    <bean id="pd" class="persistencia.ProveedorDaoImp">
+    </bean>
+    
+    <bean id="pro" class="persistencia.Proveedor">
+    </bean>
+    
+    <!--Cliente-->
+    <bean id="cd" class="persistencia.ClienteDaoImp">
+    </bean>
+    <bean id="cli" class="persistencia.Cliente">
+    </bean>
+    
+    <bean id="/ClienteControl" class="vista.ClienteControl">
+        <property name="cs" ref="cs"/>
+        <property name="p" ref="p"/>
+
+    </bean>
+  
+    <bean id="cs" class="servicio.ClienteServicioImp">
+        <property name="cd" ref="cd"/>
+        <property name="cli" ref="cli"/>
+
+
+    </bean>
+    
+    <!--Articulo-->
+    <bean id="ad" class="persistencia.ArticuloDaoImp">
+    </bean>
+    <bean id="art" class="persistencia.Articulo">
+    </bean>
+    
+    <bean id="arts" class="servicio.ArticuloServicioImp">
+        <property name="ad" ref="ad"/>
+        <property name="art" ref="art"/>
+    </bean>
+    
+    <bean id="/ArticuloControl" class="vista.ArticuloControl">
+        <property name="arts" ref="arts"/>
+        <property name="p" ref="p"/>
+
+    </bean>
+    
+</beans>
