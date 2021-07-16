@@ -28,9 +28,11 @@
                                         Archivos
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
-                                        <li><form action="../EmpleadoControl" method="post">
-                                                <input type="submit" name="acc" class="btn-secondary btn-lg w-100 dropdown-item" value="Empleado">
-                                            </form>
+                                        <li>
+                                            <p:form action="EmpleadoControl" method="post">
+                                                <p:hidden property="cod" value="E001" />
+                                                <p:submit value="Empleado" property="acc" styleClass="btn-secondary btn-lg w-100 dropdown-item"/>
+                                            </p:form>
                                         </li>
                                         <li>
                                             <p:form action="ClienteControl" method="post">

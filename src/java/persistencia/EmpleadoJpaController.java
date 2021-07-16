@@ -23,18 +23,15 @@ import persistencia.exceptions.PreexistingEntityException;
  *
  * @author toni
  */
-public class EmpleadoJpaController implements Serializable {
+public class EmpleadoJpaController implements Serializable, EmpleadoDao {
 
     public EmpleadoJpaController() {
-        this.emf=Persistence.createEntityManagerFactory("SuperMercadoPortocarreroPU");
+        this.emf = Persistence.createEntityManagerFactory("SuperMercadoPortocarreroPU");
     }
 
-    
-    
     public EmpleadoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-
 
     private EntityManagerFactory emf = null;
 
@@ -265,5 +262,59 @@ public class EmpleadoJpaController implements Serializable {
             em.close();
         }
     }
-    
+
+    @Override
+    public List listar() {
+
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    }
+
+    @Override
+    public String grabar(Empleado e) {
+        String msg;
+        try {
+            create(e);
+            msg = "Empleado Grabado";
+        } catch (Exception es) {
+            msg = "error";
+        }
+        return msg;
+    }
+
+    @Override
+    public Empleado buscar(String cod) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String eliminar(String cod) {
+        String msg;
+        try {
+            destroy(cod);
+            msg = "Empleado Eliminado";
+        } catch (Exception e) {
+            msg = e.getMessage();
+        }
+
+        return msg;
+    }
+
+    @Override
+    public List listar2() {
+        List lis = findEmpleadoEntities();
+        List lista = new ArrayList();
+        for (int i = 0; i < lis.size(); i++) {
+            Empleado pro = (Empleado) lis.get(i);
+            Object[] fila = new Object[5];
+            fila[0] = pro.getCod();
+            fila[1] = pro.getNom();
+            fila[2] = pro.getTip();
+            fila[3] = pro.getUsu();
+            fila[4] = pro.getPas();
+            lista.add(fila);
+        }
+        return lista;
+    }
+
 }

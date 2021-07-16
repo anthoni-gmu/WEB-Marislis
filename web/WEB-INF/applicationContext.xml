@@ -76,5 +76,20 @@
         <property name="p" ref="p"/>
 
     </bean>
+    <!--Empleado-->
+    <bean id="edao" class="persistencia.EmpleadoJpaController">
+    </bean>
+    
+    <bean id="em" class="persistencia.Empleado">
+    </bean>
+    <bean id="ese" class="servicio.EmpleadoServicioImp">
+         <property name="edao" ref="edao"/>
+        <property name="em" ref="em"/>
+    </bean>
+    <bean id="/EmpleadoControl" class="vista.EmpleadoControl">
+        <property name="ese" ref="ese"/>
+        <property name="p" ref="p"/>
+
+    </bean>
     
 </beans>
