@@ -318,4 +318,16 @@ public class EmpleadoJpaController implements Serializable, EmpleadoDao {
         return lista;
     }
 
+    @Override
+    public String actualizar(Empleado e) {
+       String msg;
+        try {
+            edit(e);
+            msg="Empleado Actualizado";
+        } catch (Exception es) {
+             msg="Error";
+        }
+        return msg;
+    }
+
 }

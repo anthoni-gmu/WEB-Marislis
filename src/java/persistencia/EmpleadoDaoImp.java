@@ -42,5 +42,10 @@ public class EmpleadoDaoImp implements EmpleadoDao{
     public List listar2() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public String actualizar(Empleado e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

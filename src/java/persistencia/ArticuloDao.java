@@ -9,5 +9,6 @@ public interface ArticuloDao {
     public String grabar(Articulo a);
     public Articulo buscar(String cod);
     public String eliminar(String cod);
+    public String actualizar(Articulo a);
     public List listar();
 }

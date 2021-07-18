@@ -8,4 +8,5 @@ public interface ArticuloServicio {
     public Object[] buscar(String cod);
     public List listar();
     public String eliminar(String cod);
+    public String Actualizar(String cod,double pre,int sto);
 }

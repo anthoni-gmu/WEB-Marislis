@@ -53,4 +53,12 @@ public class EmpleadoServicioImp implements EmpleadoServicio {
         return edao.eliminar(cod);
     }
 
+    @Override
+    public String Actualizar(String cod, String tip, String pas) {
+        em = edao.buscar(cod);
+        em.setTip(tip);
+        em.setPas(pas);
+        return edao.actualizar(em);
+    }
+
 }

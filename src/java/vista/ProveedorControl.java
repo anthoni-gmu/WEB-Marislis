@@ -30,10 +30,10 @@ public class ProveedorControl extends org.apache.struts.action.Action {
         if (acc.equals("Grabar")) {
             p.setMsg(ps.grabar(f.getRuc(), f.getNom(), f.getDir()));
             request.getSession().setAttribute("p", p);
-            
-              List lista = ps.listar();
+
+            List lista = ps.listar();
             request.getSession().setAttribute("lista", lista);
-            
+
             f.setDir("");
             f.setNom("");
             f.setRuc("");
@@ -45,6 +45,16 @@ public class ProveedorControl extends org.apache.struts.action.Action {
             List lista = ps.listar();
             request.getSession().setAttribute("lista", lista);
 
+            f.setDir("");
+            f.setNom("");
+            f.setRuc("");
+        }
+        if (acc.equals("Actualizar")) {
+            p.setMsg(ps.actualizar(f.getRuc(), f.getDir()));
+            request.getSession().setAttribute("p", p);
+
+            List lista = ps.listar();
+            request.getSession().setAttribute("lista", lista);
             f.setDir("");
             f.setNom("");
             f.setRuc("");

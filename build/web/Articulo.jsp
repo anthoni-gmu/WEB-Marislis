@@ -89,15 +89,18 @@
 
                                                     <div class="col-12 col-md-7 ">
                                                         <label for="exampleInputEmail1" class="form-label text-dark">Precio: </label>
-                                                        <input name="pre" type="number" step="any" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required min="1">
+                                                        <c:text property="pre" styleClass="form-control"/>
+
                                                     </div>
 
                                                     <div class="col-12 col-md-7 ">
                                                         <label for="exampleInputEmail1" class="form-label text-dark">Cantidad: </label>
-                                                        <input name="sto" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required min="1">
+                                                        <c:text property="sto" styleClass="form-control"/>
+
                                                     </div>
 
-                                                    <input type="submit" class="btn btn btn-secondary w-75 m-3 btn-lg" name="acc" value="Actualizar">
+                                                    <c:submit value="Actualizar" property="acc" styleClass="btn btn btn-secondary w-75 m-3 btn-lg"/>
+
                                                 </div>
                                             </c:form>
                                         </div>
@@ -160,10 +163,10 @@
                                                         <td>
                                                             <%= pro[2]%>
                                                         </td>
-                                                         <td>
+                                                        <td>
                                                             <%= pro[3]%>
                                                         </td>
-                                                        
+
                                                     </tr>
                                                 </tbody>
                                             </table>

@@ -71,23 +71,22 @@
                                     </h2>
                                     <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                                         <div class="accordion-body bg-light">
-                                            <form action="../ProveedorControl" method="post">
+                                            <p:form action="ProveedorControl">
+
                                                 <div class="row d-flex align-items-center justify-content-center w-100 ">
                                                     <div class="col-12 col-md-7   ">
-                                                        <label for="exampleInputEmail1" class="form-label test-dark">Codigo: </label>
-                                                        <input name="codPro" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                                                        <label for="exampleInputEmail1" class="form-label test-dark">RUC: </label>
+                                                        <p:text property="ruc" styleClass="form-control"/>
                                                     </div>
-
                                                     <div class="col-12 col-md-7 ">
                                                         <label for="exampleInputEmail1" class="form-label test-dark">Direccion: </label>
-                                                        <input name="dir" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                                                        <p:text property="dir" styleClass="form-control"/>
+
                                                     </div>
-
-
                                                     <p:submit value="Actualizar" property="acc" styleClass="btn btn btn-secondary w-75 m-3 btn-lg"/>
-
                                                 </div>
-                                            </form>
+                                            </p:form>
+
                                         </div>
                                     </div>
                                 </div>

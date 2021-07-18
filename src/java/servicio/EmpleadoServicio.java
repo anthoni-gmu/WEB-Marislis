@@ -10,4 +10,7 @@ public interface EmpleadoServicio {
     public List listar();
 
     public String eliminar(String cod);
+    
+    public String Actualizar(String cod,String tip,String pas);
+
 }

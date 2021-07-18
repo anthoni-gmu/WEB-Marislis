@@ -10,4 +10,5 @@ public interface ClienteDao {
     public Cliente buscar(String dni);
     public String eliminar(String dni);
     public List listar();
+     public String actualizar(Cliente c);
 }

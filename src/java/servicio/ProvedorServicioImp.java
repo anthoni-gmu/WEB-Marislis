@@ -47,5 +47,12 @@ private Proveedor pro;
     public String eliminar(String ruc) {
         return pd.eliminar(ruc);
     }
+
+    @Override
+    public String actualizar(String ruc, String dir) {
+       pro = pd.buscar(ruc);
+        pro.setDir(dir);
+        return pd.actualizar(pro);
+    }
     
 }

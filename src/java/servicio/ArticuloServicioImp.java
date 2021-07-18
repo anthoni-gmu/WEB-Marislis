@@ -17,9 +17,6 @@ public class ArticuloServicioImp implements ArticuloServicio {
         this.art = art;
     }
 
-
-
-    
     @Override
     public String grabar(String cod, String nom, double pre, int sto) {
         art.setCod(cod);
@@ -31,13 +28,13 @@ public class ArticuloServicioImp implements ArticuloServicio {
 
     @Override
     public Object[] buscar(String cod) {
-       art=ad.buscar(cod);
-        if(art!=null){
-            Object[]fil=new Object[4];
-            fil[0]=art.getCod();
-            fil[1]=art.getNom();
-            fil[2]=art.getPre();
-            fil[3]=art.getSto();
+        art = ad.buscar(cod);
+        if (art != null) {
+            Object[] fil = new Object[4];
+            fil[0] = art.getCod();
+            fil[1] = art.getNom();
+            fil[2] = art.getPre();
+            fil[3] = art.getSto();
             return fil;
         }
         return null;
@@ -51,6 +48,14 @@ public class ArticuloServicioImp implements ArticuloServicio {
     @Override
     public String eliminar(String cod) {
         return ad.eliminar(cod);
+    }
+
+    @Override
+    public String Actualizar(String cod, double pre, int sto) {
+        art = ad.buscar(cod);
+        art.setPre(pre);
+        art.setSto(sto);
+        return ad.actualizar(art);
     }
 
 }

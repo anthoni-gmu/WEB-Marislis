@@ -82,26 +82,31 @@
                                     </h2>
                                     <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                                         <div class="accordion-body bg-light">
-                                            <form action="../EmpleadoControl" method="post">
+                                            <c:form action="EmpleadoControl">
+
                                                 <div class="row d-flex align-items-center justify-content-center w-100 ">
                                                     <div class="col-12 col-md-7   ">
                                                         <label for="exampleInputEmail1" class="form-label text-dark">Codigo: </label>
-                                                        <input name="cod" required type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                        <c:text property="cod" styleClass="form-control"/>
                                                     </div>
 
                                                     <div class="col-12 col-md-7 ">
                                                         <label for="exampleInputEmail1" class="form-label text-dark">Tipo: </label>
-                                                        <input name="tip" required type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                        <c:text property="tip" styleClass="form-control"/>
+
                                                     </div>
 
                                                     <div class="col-12 col-md-7 ">
                                                         <label for="exampleInputEmail1" class="form-label text-dark">Contraseña: </label>
-                                                        <input name="pas" required type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                        <c:text property="pas" styleClass="form-control"/>
+
                                                     </div>
 
-                                                    <input type="submit"  class="btn btn btn-secondary w-75 m-3 btn-lg" name="acc" value="Actualizar">
+                                                    <c:submit value="Actualizar" property="acc" styleClass="btn btn btn-secondary w-75 m-3 btn-lg"/>
+
                                                 </div>
-                                            </form>
+                                            </c:form>
+
                                         </div>
                                     </div>
                                 </div>
@@ -162,16 +167,16 @@
                                                 <tbody>
                                                     <tr>
                                                         <th scope="row">
-                                                              <%= pro[0]%>
+                                                            <%= pro[0]%>
                                                         </th>
                                                         <td>
-                                                              <%= pro[1]%>
+                                                            <%= pro[1]%>
                                                         </td>
                                                         <td>
-                                                              <%= pro[2]%>
+                                                            <%= pro[2]%>
                                                         </td>
                                                         <td>
-                                                              <%= pro[3]%>
+                                                            <%= pro[3]%>
                                                         </td>
                                                     </tr>
                                                 </tbody>

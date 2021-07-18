@@ -38,6 +38,17 @@ public class ClienteControl extends org.apache.struts.action.Action {
             f.setNom("");
             f.setDni("");
         }
+        if (acc.equals("Actualizar")) {
+            p.setMsg(cs.Actualizar(f.getDni(), f.getDir()));
+            request.getSession().setAttribute("p", p);
+
+            List lisC = cs.listar();
+            request.getSession().setAttribute("lisC", lisC);
+
+            f.setDir("");
+            f.setNom("");
+            f.setDni("");
+        }
         if (acc.equals("Eliminar")) {
             p.setMsg(cs.eliminar(f.getDni()));
             request.getSession().setAttribute("p", p);

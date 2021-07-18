@@ -255,4 +255,16 @@ public class ClienteDaoImp implements Serializable, ClienteDao {
         return lista;
     }
 
+    @Override
+    public String actualizar(Cliente c) {
+        String msg;
+        try {
+            edit(c);
+            msg="Cliente Actualizado";
+        } catch (Exception e) {
+             msg="Error";
+        }
+        return msg;
+    }
+
 }

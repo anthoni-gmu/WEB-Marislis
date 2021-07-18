@@ -11,5 +11,7 @@ public interface ProvedorServicio {
     public List listar();
 
     public String eliminar(String ruc);
+    
+    public String actualizar(String ruc,String dir);
 
 }

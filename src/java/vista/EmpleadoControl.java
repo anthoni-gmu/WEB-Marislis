@@ -40,6 +40,19 @@ public class EmpleadoControl extends org.apache.struts.action.Action {
             f.setUsu("");
             f.setTip("");
         }
+        if (acc.equals("Actualizar")) {
+            p.setMsg(ese.Actualizar(f.getCod(), f.getTip(), f.getPas()));
+            request.getSession().setAttribute("p", p);
+
+            List lisE = ese.listar();
+            request.getSession().setAttribute("lisE", lisE);
+
+            f.setPas("");
+            f.setNom("");
+            f.setCod("");
+            f.setUsu("");
+            f.setTip("");
+        }
         if (acc.equals("Eliminar")) {
             p.setMsg(ese.eliminar(f.getCod()));
             request.getSession().setAttribute("p", p);

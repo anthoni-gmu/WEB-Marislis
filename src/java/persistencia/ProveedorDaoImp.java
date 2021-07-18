@@ -258,5 +258,17 @@ public class ProveedorDaoImp implements Serializable,ProveedorDao {
         }
         return lista;
     }
+
+    @Override
+    public String actualizar(Proveedor p) {
+       String msg;
+        try {
+            edit(p);
+            msg="Proveedor Actualizado";
+        } catch (Exception e) {
+             msg="Error";
+        }
+        return msg;
+    }
     
 }

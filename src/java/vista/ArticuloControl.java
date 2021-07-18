@@ -32,7 +32,19 @@ public class ArticuloControl extends org.apache.struts.action.Action {
             p.setMsg(arts.grabar(f.getCod(), f.getNom(), f.getPre(), f.getSto()));
             request.getSession().setAttribute("p", p);
 
-         List lisA = arts.listar();
+            List lisA = arts.listar();
+            request.getSession().setAttribute("lisA", lisA);
+
+            f.setCod("");
+            f.setNom("");
+            f.setPre(0);
+            f.setSto(0);
+        }
+        if (acc.equals("Actualizar")) {
+            p.setMsg(arts.Actualizar(f.getCod(), f.getPre(), f.getSto()));
+            request.getSession().setAttribute("p", p);
+
+            List lisA = arts.listar();
             request.getSession().setAttribute("lisA", lisA);
 
             f.setCod("");
@@ -44,7 +56,7 @@ public class ArticuloControl extends org.apache.struts.action.Action {
             p.setMsg(arts.eliminar(f.getCod()));
             request.getSession().setAttribute("p", p);
 
-        List lisA = arts.listar();
+            List lisA = arts.listar();
             request.getSession().setAttribute("lisA", lisA);
 
             f.setCod("");

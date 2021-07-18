@@ -362,4 +362,16 @@ public class ArticuloDaoImp implements Serializable, ArticuloDao {
         return lista;
     }
 
+    @Override
+    public String actualizar(Articulo a) {
+       String msg;
+        try {
+            edit(a);
+            msg="Articulo Actualizado";
+        } catch (Exception e) {
+             msg="Error";
+        }
+        return msg;
+    }
+
 }
