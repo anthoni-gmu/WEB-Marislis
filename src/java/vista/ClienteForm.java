@@ -48,7 +48,6 @@ public class ClienteForm extends org.apache.struts.action.ActionForm {
         ActionErrors errors = new ActionErrors();
         if (dni == null || dni.length() < 1) {
             errors.add("name", new ActionMessage("error.name.required"));
-            // TODO: add 'error.name.required' key to your resources
         }
         return errors;
     }

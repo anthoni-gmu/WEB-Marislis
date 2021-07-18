@@ -7,6 +7,9 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="VentaForm" type="vista.VentaForm"/>
+        <form-bean name="PedidoForm" type="vista.PedidoForm"/>
+        <form-bean name="CompraForm" type="vista.CompraForm"/>
         <form-bean name="EmpleadoForm" type="vista.EmpleadoForm"/>
         <form-bean name="ClienteForm" type="vista.ClienteForm"/>
         <form-bean name="ArticuloForm" type="vista.ArticuloForm"/>
@@ -41,6 +44,13 @@
         <action input="/Empleado.jsp" name="EmpleadoForm" path="/EmpleadoControl" scope="request" type="vista.EmpleadoControl">
             <forward name="emp" path="/Empleado.jsp"/>
         </action>
+        <action input="/Compra.jsp" name="CompraForm" path="/CompraControl" scope="request" type="vista.CompraControl">
+            <forward name="com" path="/Compra.jsp"/>
+        </action>
+        <action input="/Venta.jsp" name="VentaForm" path="/VentaControl" scope="request" type="vista.VentaControl">
+            <forward name="Venta" path="/Venta.jsp"/>
+        </action>
+       
         
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
     </action-mappings>

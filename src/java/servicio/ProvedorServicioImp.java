@@ -30,7 +30,7 @@ private Proveedor pro;
        pro=pd.buscar(ruc);
         if(pro!=null){
             Object[]fil=new Object[3];
-            fil[0]=pro.getDir();
+            fil[0]=pro.getRuc();
             fil[1]=pro.getNom();
             fil[2]=pro.getDir();
             return fil;

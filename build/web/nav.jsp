@@ -62,17 +62,17 @@
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
                                         <li>
-                                            <form action="../PedidoControl" method="post">
+                                            <p:form action="VentaControl" method="post">
                                                 <input type="hidden" name="cod" value="<%=fil[0]%>">
-                                                <input type="submit" name="acc" class="btn-secondary btn-lg w-100 dropdown-item" value="Nuevo Pedido">
-
-                                            </form>
+                                                <p:submit value="Nueva Venta" property="acc" styleClass="btn-secondary btn-lg w-100 dropdown-item"/>
+                                            </p:form>
                                         </li>
-                                        <li><form action="../CompraControl" method="post">
+                                        <li>
+                                            <p:form action="CompraControl" method="post">
                                                 <input type="hidden" name="cod" value="<%=fil[0]%>">
-                                                <input type="submit" name="acc" class="btn-secondary btn-lg w-100 dropdown-item" value="Nueva compra">
-
-                                            </form></li>
+                                                <p:submit value="Nueva compra" property="acc" styleClass="btn-secondary btn-lg w-100 dropdown-item"/>
+                                            </p:form>
+                                        </li>
                                     </ul>
                                 </div>
 

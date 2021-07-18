@@ -83,7 +83,7 @@
     <bean id="em" class="persistencia.Empleado">
     </bean>
     <bean id="ese" class="servicio.EmpleadoServicioImp">
-         <property name="edao" ref="edao"/>
+        <property name="edao" ref="edao"/>
         <property name="em" ref="em"/>
     </bean>
     <bean id="/EmpleadoControl" class="vista.EmpleadoControl">
@@ -92,4 +92,20 @@
 
     </bean>
     
+    <!--Compra-->
+        
+    <bean id="/CompraControl" class="vista.CompraControl">
+        <property name="p" ref="p"/>
+        <property name="arts" ref="arts"/>
+        <property name="ps" ref="ps"/>
+    </bean>
+    
+    <!--Compra-->
+        
+    <bean id="/VentaControl" class="vista.VentaControl">
+        <property name="p" ref="p"/>
+        <property name="arts" ref="arts"/>
+        <property name="cs" ref="cs"/>
+
+    </bean>
 </beans>

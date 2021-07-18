@@ -69,6 +69,12 @@ public class Articulo implements Serializable {
         this.sto = sto;
     }
 
+    public Articulo(String cod, String nom, double pre) {
+        this.cod = cod;
+        this.nom = nom;
+        this.pre = pre;
+    }
+
     public String getCod() {
         return cod;
     }

@@ -5,7 +5,7 @@ import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 import persistencia.Articulo;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2021-07-10T21:40:16")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2021-07-18T14:11:56")
 @StaticMetamodel(Kardex.class)
 public class Kardex_ { 
 
