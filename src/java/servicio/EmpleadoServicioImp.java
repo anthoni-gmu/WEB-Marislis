@@ -31,7 +31,16 @@ public class EmpleadoServicioImp implements EmpleadoServicio {
 
     @Override
     public Object[] buscar(String cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        em=edao.buscar(cod);
+        if(em!=null){
+            Object[]fil=new Object[4];
+            fil[0]=em.getCod();
+            fil[1]=em.getNom();
+            fil[2]=em.getTip();
+            fil[3]=em.getUsu();
+            return fil;
+        }
+        return null;
     }
 
     @Override

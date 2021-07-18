@@ -29,7 +29,15 @@ public class ClienteServicioImp implements ClienteServicio {
 
     @Override
     public Object[] buscar(String dni) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       cli=cd.buscar(dni);
+        if(cli!=null){
+            Object[]fil=new Object[3];
+            fil[0]=cli.getDni();
+            fil[1]=cli.getNom();
+            fil[2]=cli.getDir();
+            return fil;
+        }
+        return null;
     }
 
     @Override

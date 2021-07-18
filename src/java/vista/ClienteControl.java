@@ -50,9 +50,8 @@ public class ClienteControl extends org.apache.struts.action.Action {
             f.setDni("");
         }
         if (acc.equals("Buscar")) {
-            p.setFil(cs.buscar(f.getDir()));
-            System.out.println(p.getFil()[2]);
-            f.setDir("");
+            p.setBusC(cs.buscar(f.getDni()));
+            f.setDni("");
 
         }
         if (acc.equals("Cliente")) {

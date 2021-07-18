@@ -329,7 +329,8 @@ public class ArticuloDaoImp implements Serializable, ArticuloDao {
 
     @Override
     public Articulo buscar(String cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Articulo p=findArticulo(cod);
+       return p;
     }
 
     @Override

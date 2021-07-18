@@ -284,7 +284,8 @@ public class EmpleadoJpaController implements Serializable, EmpleadoDao {
 
     @Override
     public Empleado buscar(String cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Empleado p=findEmpleado(cod);
+       return p;
     }
 
     @Override

@@ -23,13 +23,12 @@ import persistencia.exceptions.PreexistingEntityException;
  *
  * @author toni
  */
-public class ClienteDaoImp implements Serializable,ClienteDao {
+public class ClienteDaoImp implements Serializable, ClienteDao {
 
     public ClienteDaoImp() {
-         this.emf =Persistence.createEntityManagerFactory("SuperMercadoPortocarreroPU");
+        this.emf = Persistence.createEntityManagerFactory("SuperMercadoPortocarreroPU");
     }
 
-    
     public ClienteDaoImp(EntityManagerFactory emf) {
         this.emf = emf;
     }
@@ -215,44 +214,45 @@ public class ClienteDaoImp implements Serializable,ClienteDao {
         String msg;
         try {
             create(c);
-            msg="Cliente Grabado";
+            msg = "Cliente Grabado";
         } catch (Exception e) {
-            msg="error";
+            msg = "error";
         }
         return msg;
     }
 
     @Override
     public Cliente buscar(String dni) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Cliente p = findCliente(dni);
+        return p;
     }
 
     @Override
     public String eliminar(String dni) {
-       String msg;
+        String msg;
         try {
             destroy(dni);
-            msg="Cliente Eliminado";
+            msg = "Cliente Eliminado";
         } catch (Exception e) {
-            msg=e.getMessage();
+            msg = e.getMessage();
         }
-        
+
         return msg;
     }
 
     @Override
     public List listar() {
-        List lis=findClienteEntities();
-        List lista=new ArrayList();
+        List lis = findClienteEntities();
+        List lista = new ArrayList();
         for (int i = 0; i < lis.size(); i++) {
-            Cliente pro=(Cliente)lis.get(i);
-            Object[] fila=new Object[3];
-            fila[0]=pro.getDni();
-            fila[1]=pro.getNom();
-            fila[2]=pro.getDir();
+            Cliente pro = (Cliente) lis.get(i);
+            Object[] fila = new Object[3];
+            fila[0] = pro.getDni();
+            fila[1] = pro.getNom();
+            fila[2] = pro.getDir();
             lista.add(fila);
         }
         return lista;
     }
-    
+
 }

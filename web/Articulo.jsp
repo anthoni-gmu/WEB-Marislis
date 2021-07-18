@@ -4,6 +4,7 @@
     Author     : toni
 --%>
 
+<%@page import="vista.Presentador"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="c" %>
@@ -127,46 +128,47 @@
                             <div class="container">
                                 <h1 class="text-primary fw-bold text-center">Lista de Articulo</h1>
                                 <div class="input-group mb-3">
-                                    <form action="../ArticuloControl" method="post" class=" d-flex w-100">
-                                        <div class="row w-100">
-                                            <div class="col-6 ">
-                                                <input type="text" class="form-control" required placeholder="Buscar articulo por codigo" name="cod" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                                <input class="btn btn-secondary w-100" type="submit" id="button-addon2" name="acc" value="Buscar">
-                                            </div>
+                                    <div class="row w-100">
+                                        <div class="col-6 ">
+                                            <c:form action="ArticuloControl">
+                                                <c:text property="cod" styleClass="form-control" />
+                                                <c:submit value="Buscar" property="acc" styleClass="btn btn-secondary w-100"/>
+                                            </c:form>
 
-                                            <div class="col-6" id="mostrar">
-                                                <%    /*
-                                                <table class="table table-light table-striped shadow  bg-body rounded border-1">
-                                                    <% Object[] busA = (Object[]) session.getAttribute("busA");
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">Codigo</th>
-                                                            <th scope="col">Nombre</th>
-                                                            <th scope="col">Precio</th>
-                                                            <th scope="col">Cantidad</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <th scope="row">
-                                                                <%=busA[0]
-                                                            </th>
-                                                            <td>
-                                                                <%=busA[1]
-                                                            </td>
-                                                            <td>
-                                                                <%=busA[2]
-                                                            </td>
-                                                            <td>
-                                                                <%=busA[3]
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                     */%>
-                                            </div>
                                         </div>
-                                    </form>
+
+                                        <div class="col-6" id="mostrar">
+                                            <table class="table table-light table-striped shadow  bg-body rounded border-1">
+                                                <% Presentador p = (Presentador) session.getAttribute("p"); %>
+                                                <% Object[] pro = p.getBusA();%>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Codigo</th>
+                                                        <th scope="col">Nombre</th>
+                                                        <th scope="col">Tipo</th>
+                                                        <th scope="col">Usuario</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">
+                                                            <%= pro[0]%>
+                                                        </th>
+                                                        <td>
+                                                            <%= pro[1]%>
+                                                        </td>
+                                                        <td>
+                                                            <%= pro[2]%>
+                                                        </td>
+                                                         <td>
+                                                            <%= pro[3]%>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <% List lisA = (List) session.getAttribute("lisA");%>

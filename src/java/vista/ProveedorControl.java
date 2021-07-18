@@ -50,15 +50,15 @@ public class ProveedorControl extends org.apache.struts.action.Action {
             f.setRuc("");
         }
         if (acc.equals("Buscar")) {
-            p.setFil(ps.buscar(f.getDir()));
-            System.out.println(p.getFil()[2]);
-            f.setDir("");
+            p.setBusP(ps.buscar(f.getRuc()));
+            f.setRuc("");
 
         }
         if (acc.equals("Proveedor")) {
             List lista = ps.listar();
             request.getSession().setAttribute("p", p);
             request.getSession().setAttribute("lista", lista);
+            f.setRuc("");
 
         }
 

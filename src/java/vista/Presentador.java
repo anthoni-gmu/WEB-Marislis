@@ -20,4 +20,43 @@ public class Presentador {
         this.fil = fil;
     }
     
+    private Object []busP={"","",""};
+    private Object []busC={"","",""};
+    private Object []busA={"","","","",""};
+    private Object []busE={"","","",""};
+
+    public Object[] getBusP() {
+        return busP;
+    }
+
+    public void setBusP(Object[] busP) {
+        this.busP = busP;
+    }
+
+    public Object[] getBusC() {
+        return busC;
+    }
+
+    public void setBusC(Object[] busC) {
+        this.busC = busC;
+    }
+
+    public Object[] getBusA() {
+        return busA;
+    }
+
+    public void setBusA(Object[] busA) {
+        this.busA = busA;
+    }
+
+    public Object[] getBusE() {
+        return busE;
+    }
+
+    public void setBusE(Object[] busE) {
+        this.busE = busE;
+    }
+    
+    
+    
 }

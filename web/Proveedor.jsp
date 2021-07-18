@@ -132,7 +132,7 @@
                                         <div class="col-6" id="mostrar">
                                             <table class="table table-light table-striped shadow  bg-body rounded border-1">
                                                 <% Presentador p = (Presentador) session.getAttribute("p"); %>
-                                                <% Object[] pro = p.getFil();%>
+                                                <% Object[] pro = p.getBusP();%>
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">Ruc</th>
@@ -146,10 +146,10 @@
                                                             <%= pro[0]%>
                                                         </th>
                                                         <td>
-                                                            <%= pro[0]%>
+                                                            <%= pro[1]%>
                                                         </td>
                                                         <td>
-                                                            <%= pro[0]%>
+                                                            <%= pro[2]%>
 
                                                         </td>
                                                     </tr>

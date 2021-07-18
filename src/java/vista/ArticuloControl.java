@@ -53,11 +53,8 @@ public class ArticuloControl extends org.apache.struts.action.Action {
             f.setSto(0);
         }
         if (acc.equals("Buscar")) {
-            p.setFil(arts.buscar(f.getCod()));
+            p.setBusA(arts.buscar(f.getCod()));
             f.setCod("");
-            f.setNom("");
-            f.setPre(0);
-            f.setSto(0);
 
         }
         if (acc.equals("Articulo")) {

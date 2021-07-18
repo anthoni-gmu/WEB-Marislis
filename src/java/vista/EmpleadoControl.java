@@ -51,7 +51,8 @@ public class EmpleadoControl extends org.apache.struts.action.Action {
 
         }
         if (acc.equals("Buscar")) {
-
+            p.setBusE(ese.buscar(f.getCod()));
+            f.setCod("");
         }
         if (acc.equals("Empleado")) {
             List lisE = ese.listar();
