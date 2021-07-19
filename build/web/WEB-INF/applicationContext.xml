@@ -92,7 +92,7 @@
 
     </bean>
     
-    <!--Compra-->
+    <!--Compra and Venta-->
         
     <bean id="/CompraControl" class="vista.CompraControl">
         <property name="p" ref="p"/>
@@ -100,12 +100,59 @@
         <property name="ps" ref="ps"/>
     </bean>
     
+    
     <!--Compra-->
+         
+         
+         
+        <!--C
+        
+                 
+    <bean id="DetallecompraDao" class="persistencia.DetallecompraDaoImp">
+    </bean>
+
+
+  
+        
+    ompra-->  
+    <bean id="DetalleCompraDao" class="persistencia.DetalleCompraDaoImp">
+    </bean>
+    
+    <bean id="compra" class="persistencia.Compra">
+    </bean>
+
+    
+    <bean id="CompraDao" class="persistencia.CompraDaoImp">
+    </bean>
+
+    <bean id="VentaDao" class="persistencia.VentaDaoImp">
+    </bean>
+          
+                
+
+    <bean id="DetalleVentaDao" class="persistencia.DetalleVentaDaoImp">
+    </bean>
+    <bean id="venta" class="persistencia.Venta">
+    </bean>
+        
         
     <bean id="/VentaControl" class="vista.VentaControl">
         <property name="p" ref="p"/>
         <property name="arts" ref="arts"/>
         <property name="cs" ref="cs"/>
+    </bean>
+    
+    
+    <bean id="comSer" class="servicio.CompraServicioImp">
+        <property name="em" ref="em"/>
+        <property name="art" ref="art"/>
+        <property name="pro" ref="pro"/>
+        <property name="compra" ref="compra"/>
+        <property name="venta" ref="venta"/>
+        <property name="DetalleVentaDao" ref="DetalleVentaDao"/>
+        <property name="CompraDao" ref="CompraDao"/>
+        <property name="DetalleCompraDao" ref="DetalleCompraDao"/>
+        <property name="VentaDao" ref="VentaDao"/>
 
     </bean>
 </beans>

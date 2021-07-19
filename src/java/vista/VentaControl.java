@@ -71,11 +71,23 @@ public class VentaControl extends org.apache.struts.action.Action {
             String nom = request.getParameter("nom");
             String pre = request.getParameter("pre");
             String can = request.getParameter("can");
-            double importe = Double.parseDouble(pre) * Integer.parseInt(can);
-            double compra = Double.parseDouble(pre) - (Double.parseDouble(pre) * 0.1);
-
+   
             p.setDetalleLista(venSer.agregarArticulo(codi, nom, pre, can));
 
+        }
+          if (acc.equals("Quitar")) {
+            String cod = request.getParameter("cod");
+            p.setDetalleLista(venSer.quitarArticulo(cod));
+
+        }
+           if (acc.equals("Grabar")) {
+               System.out.println(f.getNum());
+               System.out.println(f.getCod());
+               System.out.println(f.getFec());
+               System.out.println(f.getTot());
+               System.out.println(f.getDni());
+            List detalleLista=p.getDetalleLista();
+            p.setMsg(venSer.grabarVenta(f.getNum(), f.getFec(),f.getTot() , f.getDni(), f.getCod(),detalleLista));
         }
         return mapping.findForward("Venta");
     }

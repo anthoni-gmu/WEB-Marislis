@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import persistencia.exceptions.NonexistentEntityException;
@@ -20,9 +21,15 @@ import persistencia.exceptions.PreexistingEntityException;
  *
  * @author toni
  */
-public class DetallecompraJpaController implements Serializable {
+public class DetalleCompraDaoImp implements Serializable,DetalleCompraDao {
 
-    public DetallecompraJpaController(EntityManagerFactory emf) {
+    public DetalleCompraDaoImp() {
+          this.emf = Persistence.createEntityManagerFactory("SuperMercadoPortocarreroPU");
+    }
+
+    
+    
+    public DetalleCompraDaoImp(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -201,6 +208,18 @@ public class DetallecompraJpaController implements Serializable {
             return ((Long) q.getSingleResult()).intValue();
         } finally {
             em.close();
+        }
+    }
+
+    @Override
+    public void grabar(Detallecompra a) {
+        try {
+            System.out.println(a.getCan());
+            System.out.println(a.getArticulo().getCod());
+            System.out.println(a.getCompra().getNum());
+            create(a);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
     

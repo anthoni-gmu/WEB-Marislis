@@ -78,6 +78,10 @@
                         </thead>
                         <tbody>
                             <%! String tot;%>
+                            <%! String num;%>
+                            <%! String fec;%>
+                            <%! String dni;%>
+                            <%! String cod;%>
                             <%! String codC = "";%>
                             <%! String nomC = "";%>
                             <%! Double preCo = 0.0;%>
@@ -88,46 +92,46 @@
 
                                 }%>
                             <% if (test2[5] == test2[3]) {
-                                     break;
-                                 }%>
+                                    break;
+                                }%>
 
 
                             <tr>
-                        <form action="../CompraControl" method="post">
-                            <th scope="row">
-                                <input type="text" name="cod" value="<%= test2[0]%>" class="form-control  "   readonly>
+                                <c:form action="VentaControl">
+                                    <th scope="row">
+                                        <input type="text" name="cod" value="<%= test2[0]%>" class="form-control  "   readonly>
+                                    </th>
+                                    <td>
+                                        <input type="text" name="nom" value="<%= test2[1]%>" class="form-control  "   readonly>
+                                    </td>
+                                    <td>
+                                        <div class="input-group mb-3 " >
+                                            <span class="input-group-text">S/.</span>
+                                            <input type="text" name="pre" value="<%= test2[2]%>" class="form-control "  readonly>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <input type="text" name="can" value="<%= test2[3]%>" class="form-control text-center "   readonly>
+                                    </td>
+                                    <td>
+                                        <div class="input-group mb-3 " >
+                                            <span class="input-group-text">S/.</span>
+                                            <input type="text" name="pre" value="<%= test2[4]%>" class="form-control "  readonly>
 
-                            </th>
-                            <td>
-                                <input type="text" name="nom" value="<%= test2[1]%>" class="form-control  "   readonly>
-                            </td>
-                            <td>
-                                <div class="input-group mb-3 " >
-                                    <span class="input-group-text">S/.</span>
-                                    <input type="text" name="pre" value="<%= test2[2]%>" class="form-control "  readonly>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <input type="hidden" name="cod" value="<%=datos[2]%>">
 
-                                </div>
-                            </td>
-                            
-                            <td>
-                                <input type="text" name="can" value="<%= test2[3]%>" class="form-control text-center "   readonly>
-                            </td>
-                            <td>
-                                <div class="input-group mb-3 " >
-                                    <span class="input-group-text">S/.</span>
-                                    <input type="text" name="pre" value="<%= test2[4]%>" class="form-control "  readonly>
+                                        <c:submit value="Quitar" property="acc" styleClass="btn btn-danger"/>
+                                    </td>
+                                </c:form>
 
-                                </div>
-                            </td>
-                            <td>
-                                <input type="submit" name="acc" value="Quitar" class=" btn btn-danger">
-                            </td>
-                        </form>
-                        </tr>
-                        <% if (test2[5] != test2[3]) {
-                                tot = test2[5].toString();
-                            }%>
-                        <% }%>  
+                            </tr>
+                            <% if (test2[5] != test2[3]) {
+                                    tot = test2[5].toString();
+                                }%>
+                            <% }%>  
 
 
                         </tbody>
@@ -150,11 +154,12 @@
                                 </div>
                                 <div class="input-group input-group-lg my-md-3">
                                     <span class="input-group-text" id="inputGroup-sizing-lg " style="width: 125px;">Nombre</span>
-                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" value= '<%= pro[0]%>'>
+                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" value= '<%= pro[1]%>'>
                                 </div>
                                 <div class="input-group input-group-lg my-md-3">
                                     <span class="input-group-text" id="inputGroup-sizing-lg" style="width: 125px;">Código</span>
-                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" value='<%= pro[1]%>' >
+                                    <% dni = pro[0].toString();%>
+                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" value='<%= pro[0]%>' >
                                 </div>
                             </c:form>
 
@@ -167,12 +172,20 @@
                         <div class="card-body  d-flex">
                             <a href="#listar" class="btn btn-secondary mx-5 fw-bold " >Listar</a>
 
-                            <form action="../CompraControl" method="post" class=" ">
-                                <input type="hidden" name="cod"  value="">
-                                <input type="submit" name="acc" class="btn btn-secondary  mx-5 fw-bold " value="Nuevo">
-                                <input type="submit" name="acc" class="btn btn-secondary mx-5 fw-bold " value="Grabar">
+                            <input type="hidden" name="cod"  value="">
+                            <% num = datos[0].toString();%>
+                            <% fec = datos[1].toString();%>
+                            <% cod = datos[2].toString();%>
+                            <input type="submit" name="acc" class="btn btn-secondary  mx-5 fw-bold " value="Nuevo">
+                            <c:form action="VentaControl">
+                                <c:hidden property="tot" value="<%=tot%>" />
+                                <c:hidden property="dni" value="<%= dni%>" />
+                                <c:hidden property="cod" value="<%= cod%>" />
+                                <c:hidden property="fec" value="<%= fec%>" />
+                                <c:hidden property="num" value="<%= num%>" />
+                                <c:submit value="Grabar" property="acc" styleClass="btn btn-secondary mx-5 fw-bold"/>
 
-                            </form>
+                            </c:form>
                         </div>
                     </div>
                 </div>
@@ -184,7 +197,7 @@
                                 <span class="input-group-text" id="inputGroup-sizing-lg " style="width: 80px;">Total</span>
                                 <span class="input-group-text">S/.</span>
 
-                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" value="<%= tot %>">
+                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" value="<%= tot%>">
                             </div>
 
                         </div>

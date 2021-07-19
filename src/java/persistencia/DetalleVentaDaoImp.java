@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import persistencia.exceptions.NonexistentEntityException;
@@ -20,11 +21,16 @@ import persistencia.exceptions.PreexistingEntityException;
  *
  * @author toni
  */
-public class DetalleventaJpaController implements Serializable {
+public class DetalleVentaDaoImp implements Serializable,DetalleVentaDao {
 
-    public DetalleventaJpaController(EntityManagerFactory emf) {
+    public DetalleVentaDaoImp(EntityManagerFactory emf) {
         this.emf = emf;
     }
+
+    public DetalleVentaDaoImp() {
+         this.emf = Persistence.createEntityManagerFactory("SuperMercadoPortocarreroPU");
+    }
+    
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
@@ -201,6 +207,14 @@ public class DetalleventaJpaController implements Serializable {
             return ((Long) q.getSingleResult()).intValue();
         } finally {
             em.close();
+        }
+    }
+
+    @Override
+    public void grabar(Detalleventa a) {
+         try {
+            create(a);
+        } catch (Exception e) {
         }
     }
     

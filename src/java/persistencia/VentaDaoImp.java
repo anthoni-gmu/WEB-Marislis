@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import persistencia.exceptions.IllegalOrphanException;
 import persistencia.exceptions.NonexistentEntityException;
 import persistencia.exceptions.PreexistingEntityException;
@@ -22,9 +23,14 @@ import persistencia.exceptions.PreexistingEntityException;
  *
  * @author toni
  */
-public class VentaJpaController implements Serializable {
+public class VentaDaoImp implements Serializable, VentaDao {
 
-    public VentaJpaController(EntityManagerFactory emf) {
+    public VentaDaoImp() {
+        this.emf = Persistence.createEntityManagerFactory("SuperMercadoPortocarreroPU");
+
+    }
+
+    public VentaDaoImp(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -259,5 +265,17 @@ public class VentaJpaController implements Serializable {
             em.close();
         }
     }
-    
+
+    @Override
+    public String grabar(Venta a) {
+        String msg;
+        try {
+            create(a);
+            msg = "Venta Registrada";
+        } catch (Exception e) {
+            msg = "error";
+        }
+        return msg;
+    }
+
 }

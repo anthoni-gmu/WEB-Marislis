@@ -56,8 +56,6 @@ public class CompraControl extends org.apache.struts.action.Action {
 
         }
         if (acc.equals("Buscar Proveedor")) {
-            System.out.println("hola");
-            System.out.println(f.getRuc());
             p.setBusPro(ps.buscar(f.getRuc()));
             f.setRuc("");
         }
@@ -67,11 +65,18 @@ public class CompraControl extends org.apache.struts.action.Action {
             String nom = request.getParameter("nom");
             String pre = request.getParameter("pre");
             String can = request.getParameter("can");
-            double importe = Double.parseDouble(pre) * Integer.parseInt(can);
-            double compra = Double.parseDouble(pre) - (Double.parseDouble(pre) * 0.1);
-
+           
             p.setDetalleLista(comSer.agregarArticulo(codi, nom, pre, can));
 
+        }
+        if (acc.equals("Quitar")) {
+            String cod = request.getParameter("cod");
+            p.setDetalleLista(comSer.quitarArticulo(cod));
+
+        }
+        if (acc.equals("Grabar")) {
+            List detalleLista=p.getDetalleLista();
+            p.setMsg(comSer.grabarCompra(f.getNum(), f.getFec(),f.getTot() , f.getRuc(), f.getCod(),detalleLista));
         }
 
         return mapping.findForward("com");

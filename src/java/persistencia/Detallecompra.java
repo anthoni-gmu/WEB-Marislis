@@ -47,6 +47,7 @@ public class Detallecompra implements Serializable {
     public Detallecompra() {
     }
 
+    
     public Detallecompra(DetallecompraPK detallecompraPK) {
         this.detallecompraPK = detallecompraPK;
     }
