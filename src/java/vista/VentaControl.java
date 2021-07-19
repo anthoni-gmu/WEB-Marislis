@@ -49,10 +49,13 @@ public class VentaControl extends org.apache.struts.action.Action {
         String acc = f.getAcc();
         if (acc.equals("Nueva Venta")) {
             String cod = request.getParameter("cod");
-
+            
+            
+            
+            
             Object[] datos = new Object[3];
-            datos[0] = "100000";
-            datos[1] = new SimpleDateFormat("dd-MM-yyyy").format(myDate);
+            datos[0] = venSer.listarV();
+            datos[1] = new SimpleDateFormat("dd/MM/yyyy").format(myDate);
             datos[2] = cod;
             p.setDatos(datos);
             request.getSession().setAttribute("p", p);

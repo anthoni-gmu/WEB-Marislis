@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Presentador {
 
-    private String msg = "mensaje";
+    private String msg = "";
     private Object[] fil = {"", "", ""};
 
     public String getMsg() {

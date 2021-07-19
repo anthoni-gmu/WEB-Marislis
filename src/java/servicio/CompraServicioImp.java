@@ -229,4 +229,20 @@ public class CompraServicioImp implements CompraServicio {
         return msg;
     }
 
+    @Override
+    public int listarC() {
+     List lista=compraDao.listar();
+     int num=lista.size();
+     num+=100000;
+     return num;
+    }
+
+    @Override
+    public int listarV() {
+       List lista=VentaDao.listar();
+     int num=lista.size();
+     num+=100000;
+     return num;
+    }
+
 }

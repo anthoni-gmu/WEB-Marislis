@@ -4,8 +4,10 @@
     Author     : toni
 --%>
 
+<%@page import="vista.Presentador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="x" %>
+<% Presentador p = (Presentador) session.getAttribute("p"); %>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -20,6 +22,9 @@
         <script src="https://kit.fontawesome.com/50872a9b90.js" crossorigin="anonymous"></script>
         <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
         <title>Ingresar</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 
     </head>
 
@@ -77,6 +82,7 @@
             </nav>
             <div class="row">
                 <div class="col-12">
+
                     <div class="row d-flex align-items-center justify-content-center   ">
                         <div class="col-12 col-md-8 my-md-5  ">
                             <div class="card mb-md-3 shadow p-3 mb-5 bg-body rounded border-3 ">
@@ -93,21 +99,37 @@
 
                                             <div>
                                                 <x:form action="AccesoControl" method="post">
-        
-                                                <div class="input-group input-group-lg my-5 ">
-                                                    <span class="input-group-text" id="inputGroup-sizing-lg" style="width:140px">Usuario</span>
-                                                    <x:text property="usu" styleClass="form-control"/>
-                                                </div>
-                                                <div class="input-group input-group-lg my-5 ">
-                                                    <span class="input-group-text" id="inputGroup-sizing-lg " style="width:140px">Constraseña</span>
-                                                    <x:text property="pas" styleClass="form-control"/>
-                                                </div>
-                                                <div class="input-group input-group-lg my-5 ">
-                                                    <x:submit value="Iniciar" styleClass="btn w-100 btn-primary fw-bold"/>
-                                                </div>
-                                                    </x:form>
+
+                                                    <div class="input-group input-group-lg my-5 ">
+                                                        <span class="input-group-text" id="inputGroup-sizing-lg" style="width:140px">Usuario</span>
+                                                        <x:text property="usu" styleClass="form-control"/>
+                                                    </div>
+                                                    <div class="input-group input-group-lg my-5 ">
+                                                        <span class="input-group-text" id="inputGroup-sizing-lg " style="width:140px">Constraseña</span>
+                                                        <x:text property="pas" styleClass="form-control"/>
+                                                    </div>
+                                                    <% if (p.getMsg().toString() != "") {%>
+                                                    <div class="alert bg-danger alert-warning alert-dismissible fade show" role="alert">
+                                                        <h4 class="fw-bold text-center text-dark my-5"><%=p.getMsg()%></h4>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                    </div>
+                                                    <% p.setMsg(""); %>
+
+                                                    <% }%>
+                                                    <div class="input-group input-group-lg my-5 ">
+                                                        <x:submit value="Iniciar" styleClass="btn w-100 btn-primary fw-bold"/>
+                                                    </div>
+                                                </x:form>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-center flex-column">
+                                                <% if (p.getMsg().toString() != "") {%>
+                                                <div class="alert bg-danger alert-warning alert-dismissible fade show" role="alert">
+                                                    <h4 class="fw-bold text-center text-dark my-5"><%=p.getMsg()%></h4>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                </div>
+                                                <% p.setMsg(""); %>
+
+                                                <% }%>
                                                 <a class="text-dark" href="">Recuperar contraseña</a>
                                                 <a class="text-dark" href="RegistrarEmpleado.jsp">Registrar</a>
                                             </div>

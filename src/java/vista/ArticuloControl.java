@@ -65,7 +65,11 @@ public class ArticuloControl extends org.apache.struts.action.Action {
             f.setSto(0);
         }
         if (acc.equals("Buscar")) {
-            p.setBusA(arts.buscar(f.getCod()));
+            if (arts.buscar(f.getCod()) == null) {
+                p.setMsg("El articulo no exite!!");
+            } else {
+                p.setBusA(arts.buscar(f.getCod()));
+            }
             f.setCod("");
 
         }

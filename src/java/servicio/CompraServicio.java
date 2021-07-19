@@ -9,4 +9,6 @@ public interface CompraServicio {
     public List quitarArticulo(String cod);
     public String grabarCompra(String num,String fec,double tot,String ruc,String cod,List detalleCompra);
     public String grabarVenta(String num,String fec,double tot,String dni,String cod,List detalleVenta);
+    public int listarC();
+    public int listarV();
 }

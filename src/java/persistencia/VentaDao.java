@@ -5,6 +5,7 @@
  */
 package persistencia;
 
+import java.util.List;
 import persistencia.exceptions.PreexistingEntityException;
 
 /**
@@ -17,5 +18,8 @@ public interface VentaDao {
 
     
     public String grabar(Venta a);
+    
+        public List listar();
+
 
 }

@@ -45,7 +45,7 @@ public class CompraControl extends org.apache.struts.action.Action {
             String cod = request.getParameter("cod");
 
             Object[] datos = new Object[3];
-            datos[0] = "100000";
+            datos[0] = comSer.listarC();
             datos[1] = new SimpleDateFormat("dd-MM-yyyy").format(myDate);
             datos[2] = cod;
             p.setDatos(datos);

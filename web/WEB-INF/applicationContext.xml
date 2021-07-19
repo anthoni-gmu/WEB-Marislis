@@ -18,6 +18,8 @@
     </bean>
     <bean id="/AccesoControl" class="vista.AccesoControl">
         <property name="as" ref="as"/>
+    <property name="p" ref="p"/>
+
     </bean>
     
     

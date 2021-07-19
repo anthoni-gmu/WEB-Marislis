@@ -10,11 +10,15 @@ import servicio.*;
 public class AccesoControl extends org.apache.struts.action.Action {
 
     private AccesoServicio as;
+    private Presentador p;
 
     public void setAs(AccesoServicio as) {
         this.as = as;
     }
-    
+
+    public void setP(Presentador p) {
+        this.p = p;
+    }
 
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
@@ -27,9 +31,10 @@ public class AccesoControl extends org.apache.struts.action.Action {
             return mapping.findForward("Menu");
 
         } else {
-            request.getSession().setAttribute("msg", "Aceeso no permitido");
-            return mapping.findForward("Mensaje");
+            p.setMsg("Error al Iniciar");
+            request.getSession().setAttribute("p", p);
 
+            return mapping.findForward("Mensaje");
         }
     }
 }

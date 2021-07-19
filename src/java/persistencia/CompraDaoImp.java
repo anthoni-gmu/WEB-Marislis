@@ -279,4 +279,17 @@ public class CompraDaoImp implements Serializable, CompraDao {
         return msg;
     }
 
+    @Override
+    public List listar() {
+        List lis = findCompraEntities();
+        List lista = new ArrayList();
+        for (int i = 0; i < lis.size(); i++) {
+            Compra pro = (Compra) lis.get(i);
+            Object[] fila = new Object[1];
+            fila[0] = pro.getNum();
+            lista.add(fila);
+        }
+        return lista;
+    }
+
 }

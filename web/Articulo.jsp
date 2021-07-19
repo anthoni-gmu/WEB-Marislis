@@ -8,6 +8,7 @@
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="c" %>
+<% Presentador p = (Presentador) session.getAttribute("p"); %>
 
 
 <!DOCTYPE html>
@@ -128,6 +129,14 @@
                             </div>
                         </div>
                         <div class="col-12 col-md-7">
+                            <% if (p.getMsg().toString() != "") {%>
+                                                <div class="alert bg-danger alert-warning alert-dismissible fade show" role="alert">
+                                                    <h4 class="fw-bold text-center h3 text-dark "><%=p.getMsg()%></h4>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                </div>
+                                                <% p.setMsg(""); %>
+
+                                                <% }%>
                             <div class="container">
                                 <h1 class="text-primary fw-bold text-center">Lista de Articulo</h1>
                                 <div class="input-group mb-3">
@@ -142,7 +151,6 @@
 
                                         <div class="col-6" id="mostrar">
                                             <table class="table table-light table-striped shadow  bg-body rounded border-1">
-                                                <% Presentador p = (Presentador) session.getAttribute("p"); %>
                                                 <% Object[] pro = p.getBusA();%>
                                                 <thead>
                                                     <tr>
